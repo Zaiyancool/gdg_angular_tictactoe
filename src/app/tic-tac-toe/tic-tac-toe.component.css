@@ -1,0 +1,56 @@
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .description {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .description p {
+    margin: 0;
+    font-size: 1.1em;
+    color: #333;
+  }
+  
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+  }
+  
+  .row {
+    display: contents;
+  }
+  
+  .cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cell.x-hover:hover {
+    background-color: #ffcccc; /* Light red for X hover */
+  }
+  
+  .cell.o-hover:hover {
+    background-color: #ccccff; /* Light blue for O hover */
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+  }

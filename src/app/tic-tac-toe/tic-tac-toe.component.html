@@ -1,0 +1,30 @@
+<div class="game">
+    <h1>Tic-Tac-Toe</h1>
+    <div *ngIf="winner; else gameBoard">
+      <h2 *ngIf="winner === 'Draw'">It's a Draw!</h2>
+      <h2 *ngIf="winner !== 'Draw'">Player {{ winner }} wins!</h2>
+      <button (click)="resetGame()">Play Again</button>
+    </div>
+    <ng-template #gameBoard>
+      <!-- Add the description here -->
+      <div class="description">
+        <p *ngIf="currentPlayer === 'X'">It's <strong>X</strong>'s turn. Hover over an empty cell to see a light red background.</p>
+        <p *ngIf="currentPlayer === 'O'">It's <strong>O</strong>'s turn. Hover over an empty cell to see a light blue background.</p>
+      </div>
+      <div class="board">
+        <div *ngFor="let row of board; let i = index" class="row">
+          <div
+            *ngFor="let cell of row; let j = index"
+            class="cell"
+            [ngClass]="{
+              'x-hover': cell === '' && currentPlayer === 'X',
+              'o-hover': cell === '' && currentPlayer === 'O'
+            }"
+            (click)="makeMove(i, j)"
+          >
+            {{ cell }}
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
